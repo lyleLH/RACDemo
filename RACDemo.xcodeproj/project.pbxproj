@@ -10,11 +10,13 @@
 		318D7EB71D37B8320072F518 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EB61D37B8320072F518 /* main.m */; };
 		318D7EBA1D37B8320072F518 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EB91D37B8320072F518 /* AppDelegate.m */; };
 		318D7EBD1D37B8320072F518 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EBC1D37B8320072F518 /* ViewController.m */; };
-		318D7EC01D37B8320072F518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 318D7EBE1D37B8320072F518 /* Main.storyboard */; };
 		318D7EC21D37B8320072F518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 318D7EC11D37B8320072F518 /* Assets.xcassets */; };
 		318D7EC51D37B8320072F518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 318D7EC31D37B8320072F518 /* LaunchScreen.storyboard */; };
 		318D7ED01D37B8320072F518 /* RACDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7ECF1D37B8320072F518 /* RACDemoTests.m */; };
 		318D7EDB1D37B8320072F518 /* RACDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EDA1D37B8320072F518 /* RACDemoUITests.m */; };
+		318D7EEA1D37D4EC0072F518 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 318D7EE91D37D4EC0072F518 /* Localizable.strings */; };
+		318D7EED1D37DCF40072F518 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EEC1D37DCF40072F518 /* StatusCell.m */; };
+		6170439E5EAB1B464FA924DC /* Pods_RACDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8615CBA902C04B1311B919 /* Pods_RACDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22060256A5D4F4C1554E9469 /* Pods-RACDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		30EBCF934B94D0CC52D5F988 /* Pods-RACDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo.release.xcconfig"; sourceTree = "<group>"; };
 		318D7EB21D37B8320072F518 /* RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		318D7EB61D37B8320072F518 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		318D7EB81D37B8320072F518 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		318D7EB91D37B8320072F518 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		318D7EBB1D37B8320072F518 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		318D7EBC1D37B8320072F518 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		318D7EBF1D37B8320072F518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		318D7EC11D37B8320072F518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		318D7EC41D37B8320072F518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		318D7EC61D37B8320072F518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +54,11 @@
 		318D7ED61D37B8320072F518 /* RACDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318D7EDA1D37B8320072F518 /* RACDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACDemoUITests.m; sourceTree = "<group>"; };
 		318D7EDC1D37B8320072F518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		318D7EE81D37CD120072F518 /* GlobeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobeHeader.h; sourceTree = "<group>"; };
+		318D7EE91D37D4EC0072F518 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		318D7EEB1D37DCF40072F518 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		318D7EEC1D37DCF40072F518 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		6E8615CBA902C04B1311B919 /* Pods_RACDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RACDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6170439E5EAB1B464FA924DC /* Pods_RACDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27EBC4CFFA16676A5B85245E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E8615CBA902C04B1311B919 /* Pods_RACDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		318D7EA91D37B8310072F518 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +102,8 @@
 				318D7ECE1D37B8320072F518 /* RACDemoTests */,
 				318D7ED91D37B8320072F518 /* RACDemoUITests */,
 				318D7EB31D37B8320072F518 /* Products */,
+				AEBEDA76E22ED4F701E03AB6 /* Pods */,
+				27EBC4CFFA16676A5B85245E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +120,13 @@
 		318D7EB41D37B8320072F518 /* RACDemo */ = {
 			isa = PBXGroup;
 			children = (
+				318D7EE81D37CD120072F518 /* GlobeHeader.h */,
 				318D7EB81D37B8320072F518 /* AppDelegate.h */,
 				318D7EB91D37B8320072F518 /* AppDelegate.m */,
 				318D7EBB1D37B8320072F518 /* ViewController.h */,
 				318D7EBC1D37B8320072F518 /* ViewController.m */,
-				318D7EBE1D37B8320072F518 /* Main.storyboard */,
-				318D7EC11D37B8320072F518 /* Assets.xcassets */,
-				318D7EC31D37B8320072F518 /* LaunchScreen.storyboard */,
-				318D7EC61D37B8320072F518 /* Info.plist */,
+				318D7EEB1D37DCF40072F518 /* StatusCell.h */,
+				318D7EEC1D37DCF40072F518 /* StatusCell.m */,
 				318D7EB51D37B8320072F518 /* Supporting Files */,
 			);
 			path = RACDemo;
@@ -117,7 +135,11 @@
 		318D7EB51D37B8320072F518 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				318D7EC11D37B8320072F518 /* Assets.xcassets */,
+				318D7EC31D37B8320072F518 /* LaunchScreen.storyboard */,
+				318D7EC61D37B8320072F518 /* Info.plist */,
 				318D7EB61D37B8320072F518 /* main.m */,
+				318D7EE91D37D4EC0072F518 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,6 +162,15 @@
 			path = RACDemoUITests;
 			sourceTree = "<group>";
 		};
+		AEBEDA76E22ED4F701E03AB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22060256A5D4F4C1554E9469 /* Pods-RACDemo.debug.xcconfig */,
+				30EBCF934B94D0CC52D5F988 /* Pods-RACDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 318D7EDF1D37B8320072F518 /* Build configuration list for PBXNativeTarget "RACDemo" */;
 			buildPhases = (
+				672B25991FD33E54C28BA703 /* [CP] Check Pods Manifest.lock */,
 				318D7EAE1D37B8310072F518 /* Sources */,
 				318D7EAF1D37B8310072F518 /* Frameworks */,
 				318D7EB01D37B8310072F518 /* Resources */,
+				3E1A939B7C4722CFC80A24F3 /* [CP] Embed Pods Frameworks */,
+				A3F9DE2568392F60521FC5D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,8 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				318D7EC51D37B8320072F518 /* LaunchScreen.storyboard in Resources */,
+				318D7EEA1D37D4EC0072F518 /* Localizable.strings in Resources */,
 				318D7EC21D37B8320072F518 /* Assets.xcassets in Resources */,
-				318D7EC01D37B8320072F518 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +299,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3E1A939B7C4722CFC80A24F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		672B25991FD33E54C28BA703 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A3F9DE2568392F60521FC5D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		318D7EAE1D37B8310072F518 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,6 +355,7 @@
 				318D7EBD1D37B8320072F518 /* ViewController.m in Sources */,
 				318D7EBA1D37B8320072F518 /* AppDelegate.m in Sources */,
 				318D7EB71D37B8320072F518 /* main.m in Sources */,
+				318D7EED1D37DCF40072F518 /* StatusCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +391,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		318D7EBE1D37B8320072F518 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				318D7EBF1D37B8320072F518 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		318D7EC31D37B8320072F518 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -409,6 +484,7 @@
 		};
 		318D7EE01D37B8320072F518 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22060256A5D4F4C1554E9469 /* Pods-RACDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACDemo/Info.plist;
@@ -420,6 +496,7 @@
 		};
 		318D7EE11D37B8320072F518 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30EBCF934B94D0CC52D5F988 /* Pods-RACDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACDemo/Info.plist;
@@ -496,6 +573,7 @@
 				318D7EE11D37B8320072F518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		318D7EE21D37B8320072F518 /* Build configuration list for PBXNativeTarget "RACDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +582,7 @@
 				318D7EE41D37B8320072F518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		318D7EE51D37B8320072F518 /* Build configuration list for PBXNativeTarget "RACDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +591,7 @@
 				318D7EE71D37B8320072F518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
