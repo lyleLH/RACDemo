@@ -9,6 +9,11 @@
 #ifndef GlobeHeader_h
 #define GlobeHeader_h
 
+// 新浪微博
+#define mWeiBoAppKey                @"3326454558"
+#define mWeiBoAppSecret             @"b4492536fcc92cd7b075d892aa78bd43"
+#define mWeiBoRedirectURI           @"https://api.weibo.com/oauth2/default.html"
+
 //define this constant if you want to use Masonry without the 'mas_' prefix
 #define MAS_SHORTHAND
 

@@ -35,6 +35,7 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - SVProgressHUD (1.1.2)
+  - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (from `./Frameworks/SDWebImage`)
   - SVProgressHUD (from `./Frameworks/SVProgressHUD`)
+  - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
   AFNetworking-RACExtensions:
@@ -53,11 +55,16 @@ EXTERNAL SOURCES:
     :path: ./Frameworks/SDWebImage
   SVProgressHUD:
     :path: ./Frameworks/SVProgressHUD
+  WeiboSDK:
+    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 CHECKOUT OPTIONS:
   AFNetworking-RACExtensions:
     :commit: d4c6097d3f22be212c66339f850b1be180162747
     :git: https://github.com/knshiro/AFNetworking-RACExtensions.git
+  WeiboSDK:
+    :commit: 6031a8da4ce17867ff5887b8dfc59ea45930274e
+    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -66,7 +73,8 @@ SPEC CHECKSUMS:
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 704f0018d1cda883a892e7327e0830852a0a4e54
   SVProgressHUD: 3afb875b9eb23acd1bed9b82495695c68621a8b2
+  WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: 15c26d50e325823fdb6404a39ed12cdb7bb011a8
+PODFILE CHECKSUM: ee64017167d1a0dd3b6c732c7218f568ff255049
 
 COCOAPODS: 1.0.1
