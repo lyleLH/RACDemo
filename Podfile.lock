@@ -24,6 +24,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Masonry (0.6.4)
+  - MJExtension (2.5.14)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - AFNetworking
   - AFNetworking-RACExtensions (from `https://github.com/knshiro/AFNetworking-RACExtensions.git`)
   - Masonry (from `./Frameworks/Masonry`)
+  - MJExtension (= 2.5.14)
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (from `./Frameworks/SDWebImage`)
   - SVProgressHUD (from `./Frameworks/SVProgressHUD`)
@@ -70,11 +72,12 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AFNetworking-RACExtensions: b9b18c486fe4e257fb6c1ce6a848e82581af2170
   Masonry: cc99fc819a53e7447fa5e8aa22f8a3e993aa2d97
+  MJExtension: fb8e6e900fb44c9a7be435ba3d72b7fdf5f0994c
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 704f0018d1cda883a892e7327e0830852a0a4e54
   SVProgressHUD: 3afb875b9eb23acd1bed9b82495695c68621a8b2
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: ee64017167d1a0dd3b6c732c7218f568ff255049
+PODFILE CHECKSUM: cb00221f8e91f1784a362128a1e85e91f678717d
 
 COCOAPODS: 1.0.1

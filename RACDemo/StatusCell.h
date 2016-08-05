@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StatusCellViewModel.h"
 
 @interface StatusCell : UITableViewCell
 
-@property(nonatomic, strong) UIImageView *iconImg;
+@property (nonatomic, strong) StatusCellViewModel *viewModel;
 
 @end

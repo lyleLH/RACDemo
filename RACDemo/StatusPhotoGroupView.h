@@ -1,14 +1,13 @@
 //
-//  ViewController.h
+//  StatusPhotoGroupView.h
 //  RACDemo
 //
-//  Created by 張帥 on 2016/7/14.
+//  Created by 張帥 on 2016/7/15.
 //  Copyright © 2016年 張帥. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface StatusPhotoGroupView : UIView
 
 @end
-

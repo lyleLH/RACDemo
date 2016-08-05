@@ -6,6 +6,7 @@ platform :ios, '7.0'
 target 'RACDemo’ do
 
 	pod 'ReactiveCocoa',                '~> 2.5’
+    pod 'MJExtension',                  '2.5.14'
 	pod 'Masonry',                      :path => './Frameworks/Masonry'
 	pod 'SDWebImage',                   :path => './Frameworks/SDWebImage'
 	pod 'SVProgressHUD',                :path => './Frameworks/SVProgressHUD'

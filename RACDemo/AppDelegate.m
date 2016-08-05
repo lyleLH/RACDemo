@@ -7,9 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "StatusViewController.h"
+#import <WeiboSDK.h>
+#import "WeiboAccount.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <WeiboSDKDelegate>
 
 @end
 
@@ -17,13 +19,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UIViewController *viewController = [[ViewController alloc] init];
+    UIViewController *viewController = [[StatusViewController alloc] init];
     UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = mainNavigationController;
     [self.window makeKeyAndVisible];
+    
+    [WeiboSDK registerApp:mWeiBoAppKey];
     
     return YES;
 }
@@ -48,6 +50,51 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSString *string = [url absoluteString];
+    if ([string hasPrefix:@"wb"]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    } else {
+        return NO;
+    }
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSString *string = [url absoluteString];
+    if ([string hasPrefix:@"wb"]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    } else {
+        return NO;
+    }
+}
+
+// 微博
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    if ([response isKindOfClass:WBAuthorizeResponse.class]) {
+        ZSLog("%@", response.userInfo);
+        WBAuthorizeResponse *res = (WBAuthorizeResponse *)response;
+        WeiboAccount *account = [WeiboAccount new];
+        account.uid = res.userID;
+        account.expiresTime = res.expirationDate;
+        account.access_token = res.accessToken;
+        account.refresh_token = res.refreshToken;
+        [account saveAccount];
+        
+        [self.authorizeCompletionSignal sendNext:nil];
+    }
+}
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (RACSubject *)authorizeCompletionSignal {
+    if (!_authorizeCompletionSignal) {
+        _authorizeCompletionSignal = [RACSubject subject];
+    }
+    return _authorizeCompletionSignal;
 }
 
 @end
