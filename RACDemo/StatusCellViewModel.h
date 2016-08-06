@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "StatusUserModel.h"
+#import "StatusModel.h"
 
 @interface StatusCellViewModel : NSObject
+
+@property (strong, nonatomic) StatusModel *status;
 
 // 头像url
 @property (nonatomic, copy) NSString *avatar;
@@ -19,5 +21,7 @@
 
 // 微博正文
 @property (copy, nonatomic) NSString *text;
+
+- (instancetype)initWithStatusModel:(StatusModel *)status;
 
 @end

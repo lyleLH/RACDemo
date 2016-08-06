@@ -90,9 +90,9 @@
     if ([[NSDate date] compare:account.expiresTime] == NSOrderedDescending) {
         [WBHttpRequest requestForRenewAccessTokenWithRefreshToken:account.refresh_token queue:[NSOperationQueue new] withCompletionHandler:^(WBHttpRequest *httpRequest, NSDictionary *result, NSError *error) {
             ZSLog("result = %@", result);
-            WeiboAccount *account = [WeiboAccount objectWithKeyValues:result];
+            WeiboAccount *account = [WeiboAccount mj_objectWithKeyValues:result];
             [account saveAccount];
-            ZSLog("account = %@", account.keyValues);
+            ZSLog("account = %@", account.mj_keyValues);
         }];
     }
 }

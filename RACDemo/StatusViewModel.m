@@ -17,15 +17,7 @@
 
 - (NSMutableArray<StatusCellViewModel *> *)dataSource {
     if (!_dataSource) {
-        NSMutableArray *array = [NSMutableArray new];
-        for (int i = 0; i < 50; i++) {
-            StatusCellViewModel *cellModel = [StatusCellViewModel new];
-            cellModel.text = [NSString stringWithFormat:@"%d - gtesijglsajhlahljreaiglangsg单肩都发你肯定是你姐夫是电脑跟楼上的过分的话gtesijglsajhlahljreaiglangsggtesijglsajhlahljreaiglanasaa", i];
-            cellModel.userName = @"嗚嚕嗚嚕";
-            [array addObject:cellModel];
-        }
-        _dataSource = array;
-        
+        _dataSource = [NSMutableArray new];
     }
     return _dataSource;
 }
@@ -39,6 +31,8 @@
                 request.redirectURI = mWeiBoRedirectURI;
                 request.scope = @"all";
                 [WeiboSDK sendRequest:request];
+                
+                [subscriber sendCompleted];
                 
                 return nil;
             }];
@@ -60,13 +54,86 @@
                     if(!account) account = [WeiboAccount loadAccount];
                     account.user = (StatusUserModel *)result;
                     [account saveAccount];
-                } failure:nil];
+                    
+                    [subscriber sendCompleted];
+                } failure:^(NSError *error) {
+                    [subscriber sendError:error];
+                }];
                 
                 return nil;
             }];
         }];
     }
     return _setupUserDataCommand;
+}
+
+- (RACCommand *)loadNewDataCommand {
+    if (!_loadNewDataCommand) {
+        _loadNewDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                
+                WeiboInfoParam *param = [WeiboInfoParam new];
+                param.count = @20;
+                if (self.dataSource.count) {
+                    StatusCellViewModel *cellModel = self.dataSource[0];
+                    param.since_id = @(cellModel.status.ID);
+                }
+                
+                [WeiboNetworkTools weiboInfoWithParam:param success:^(WeiboInfoResult *result) {
+                    NSMutableArray *cellModelArray = [NSMutableArray array];
+                    for (StatusModel *status in result.statuses) {
+                        StatusCellViewModel *cellModel = [[StatusCellViewModel alloc] initWithStatusModel:status];
+                        [cellModelArray addObject:cellModel];
+                    }
+                    
+                    NSMutableArray *tempArray = [NSMutableArray array];
+                    [tempArray addObjectsFromArray:cellModelArray];
+                    [tempArray addObjectsFromArray:self.dataSource];
+                    self.dataSource = tempArray;
+                    
+                    [subscriber sendCompleted];
+                } failure:^(NSError *error) {
+                    [subscriber sendError:error];
+                }];
+                
+                return nil;
+            }];
+        }];
+    }
+    return _loadNewDataCommand;
+}
+
+- (RACCommand *)loadMoreDataCommand {
+    if (!_loadMoreDataCommand) {
+        _loadMoreDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                
+                WeiboInfoParam *param = [WeiboInfoParam new];
+                if (self.dataSource.count) {
+                    StatusCellViewModel *cellModel = [self.dataSource lastObject];
+                    // 加载ID <= max_id的微博
+                    param.max_id = @(cellModel.status.ID - 1);
+                }
+                
+                [WeiboNetworkTools weiboInfoWithParam:param success:^(WeiboInfoResult *result) {
+                    NSMutableArray *cellModelArray = [NSMutableArray array];
+                    for (StatusModel *status in result.statuses) {
+                        StatusCellViewModel *cellModel = [[StatusCellViewModel alloc] initWithStatusModel:status];
+                        [cellModelArray addObject:cellModel];
+                    }
+                    [self.dataSource addObjectsFromArray:cellModelArray];
+                    
+                    [subscriber sendCompleted];
+                } failure:^(NSError *error) {
+                    [subscriber sendError:error];
+                }];
+
+                
+                return nil;
+            }];
+        }];
+    }
+    return _loadMoreDataCommand;
 }
 
 @end

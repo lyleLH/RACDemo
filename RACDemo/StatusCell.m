@@ -54,7 +54,6 @@
 
 - (void)defineLayout {
     @weakify(self);
-    
     [self.iconImg makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(UIEdgeInsetsMake(16, 16, 16, 16));
         make.size.equalTo(40);
@@ -75,7 +74,6 @@
 
 - (void)bindWithViewModel {
     @weakify(self);
-    
     [RACObserve(self, viewModel) subscribeNext:^(StatusCellViewModel *viewModel) {
         @strongify(self);
         [self.iconImg sd_setImageWithURL:[NSURL URLWithString:viewModel.avatar] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];

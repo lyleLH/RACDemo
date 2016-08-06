@@ -11,6 +11,7 @@
 #import "StatusCell.h"
 #import "StatusViewModel.h"
 #import "WeiboAccount.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface StatusViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -32,6 +33,9 @@
     
     // 进行布局
     [self defineLayout];
+    
+    // V绑定VM
+    [self bindWithViewModel];
     
     // 授权登录
     [self login];
@@ -67,11 +71,31 @@
 
 - (void)defineLayout {
     @weakify(self);
-    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.left.right.bottom.equalTo(self.view);
     }];
+}
+
+- (void)bindWithViewModel {
+    @weakify(self);
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [[self.viewModel.loadNewDataCommand execute:nil] subscribeCompleted:^{
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+        }];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+         @strongify(self);
+        [[self.viewModel.loadMoreDataCommand execute:nil] subscribeCompleted:^{
+            [self.tableView.mj_footer endRefreshing];
+            [self.tableView reloadData];
+        }];
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - TableViewDelegate

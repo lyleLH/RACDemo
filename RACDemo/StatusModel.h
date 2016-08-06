@@ -28,11 +28,6 @@
 /**
  *  微博的ID
  */
-@property (nonatomic, copy) NSString *idstr;
-
-/**
- *  微博的ID
- */
 @property (assign, nonatomic) int64_t ID;
 
 /**

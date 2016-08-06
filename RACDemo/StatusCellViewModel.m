@@ -10,4 +10,21 @@
 
 @implementation StatusCellViewModel
 
+- (instancetype)initWithStatusModel:(StatusModel *)status {
+    self = [super init];
+    if (!self) return nil;
+    
+    self.status = status;
+    
+    return self;
+}
+
+- (void)setStatus:(StatusModel *)status {
+    _status = status;
+    
+    self.avatar = status.user.avatar_large;
+    self.userName = status.user.name;
+    self.text = status.text;
+}
+
 @end

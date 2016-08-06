@@ -14,9 +14,9 @@
 @implementation WeiboNetworkTools
 
 + (void)userInfoWithParam:(WeiboUserParam *)param success:(void (^)(WeiboUserResult *result))success failure:(void (^)(NSError *error))failure {
-    [self GET:@"https://api.weibo.com/2/users/show.json" params:param.keyValues success:^(WBHttpRequest *httpRequest, NSDictionary *json) {
+    [self GET:@"https://api.weibo.com/2/users/show.json" params:param.mj_keyValues success:^(WBHttpRequest *httpRequest, NSDictionary *json) {
         if (success) {
-            WeiboUserResult *result = [WeiboUserResult objectWithKeyValues:json];
+            WeiboUserResult *result = [WeiboUserResult mj_objectWithKeyValues:json];
             success(result);
         }
     } failure:^(WBHttpRequest *httpRequest, NSError *error) {
@@ -27,9 +27,9 @@
 }
 
 + (void)weiboInfoWithParam:(WeiboInfoParam *)param success:(void (^)(WeiboInfoResult *result))success failure:(void (^)(NSError *error))failure {
-    [self GET:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.keyValues success:^(WBHttpRequest *httpRequest, NSDictionary *json) {
+    [self GET:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.mj_keyValues success:^(WBHttpRequest *httpRequest, NSDictionary *json) {
         if (success) {
-            WeiboInfoResult *result = [WeiboInfoResult objectWithKeyValues:json];
+            WeiboInfoResult *result = [WeiboInfoResult mj_objectWithKeyValues:json];
             success(result);
         }
     } failure:^(WBHttpRequest *httpRequest, NSError *error) {

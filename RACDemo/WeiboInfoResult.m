@@ -11,7 +11,7 @@
 
 @implementation WeiboInfoResult
 
-- (NSDictionary *)objectClassInArray {
++ (NSDictionary *)mj_objectClassInArray {
     return @{@"statuses" : [StatusModel class]};
 }
 

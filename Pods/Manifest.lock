@@ -1,6 +1,7 @@
 PODS:
   - Masonry (1.0.1)
-  - MJExtension (2.5.14)
+  - MJExtension (3.0.11)
+  - MJRefresh (3.1.10)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -15,7 +16,8 @@ PODS:
 
 DEPENDENCIES:
   - Masonry (~> 1.0.1)
-  - MJExtension (= 2.5.14)
+  - MJExtension (~> 3.0.11)
+  - MJRefresh (~> 3.1.10)
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (~> 3.8.1)
   - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
@@ -31,11 +33,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
-  MJExtension: fb8e6e900fb44c9a7be435ba3d72b7fdf5f0994c
+  MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
+  MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: 409ef6bbff70e6663cc09fa0239449d1eb3961f5
+PODFILE CHECKSUM: 093358a9a55fe35217291f2799e706e822a4b7e7
 
 COCOAPODS: 1.0.1

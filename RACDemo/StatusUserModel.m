@@ -7,10 +7,11 @@
 //
 
 #import "StatusUserModel.h"
+#import <MJExtension/MJExtension.h>
 
 @implementation StatusUserModel
 
-- (NSDictionary *)replacedKeyFromPropertyName {
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
     return @{@"ID" : @"id", @"mDescription" : @"description"};
 }
 
