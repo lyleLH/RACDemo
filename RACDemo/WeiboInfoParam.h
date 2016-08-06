@@ -6,9 +6,9 @@
 //  Copyright © 2016年 張帥. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WeiboBaseParam.h"
 
-@interface WeiboInfoParam : NSObject
+@interface WeiboInfoParam : WeiboBaseParam
 
 /**
  *  int64

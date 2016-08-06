@@ -81,20 +81,11 @@
         account.access_token = res.accessToken;
         account.refresh_token = res.refreshToken;
         [account saveAccount];
-        
-        [self.authorizeCompletionSignal sendNext:nil];
     }
 }
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
     
-}
-
-- (RACSubject *)authorizeCompletionSignal {
-    if (!_authorizeCompletionSignal) {
-        _authorizeCompletionSignal = [RACSubject subject];
-    }
-    return _authorizeCompletionSignal;
 }
 
 @end

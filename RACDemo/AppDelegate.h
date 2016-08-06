@@ -13,7 +13,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) RACSubject *authorizeCompletionSignal;
-
 @end
 

@@ -23,6 +23,7 @@
 		318D7F011D39B90F0072F518 /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7F001D39B90F0072F518 /* StatusModel.m */; };
 		318D7F041D39B9510072F518 /* StatusUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7F031D39B9510072F518 /* StatusUserModel.m */; };
 		318D7F071D39C2830072F518 /* StatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7F061D39C2830072F518 /* StatusViewModel.m */; };
+		31E1E40D1D55619B00408193 /* WeiboBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1E40C1D55619B00408193 /* WeiboBaseParam.m */; };
 		31EC9A9F1D4B4D6A001C9B86 /* StatusCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9A9E1D4B4D6A001C9B86 /* StatusCellViewModel.m */; };
 		31EC9AA31D4BA450001C9B86 /* WeiboNetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AA21D4BA450001C9B86 /* WeiboNetworkTools.m */; };
 		31EC9AA71D4BA698001C9B86 /* WeiboUserParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AA61D4BA698001C9B86 /* WeiboUserParam.m */; };
@@ -86,6 +87,8 @@
 		318D7F031D39B9510072F518 /* StatusUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusUserModel.m; sourceTree = "<group>"; };
 		318D7F051D39C2830072F518 /* StatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewModel.h; sourceTree = "<group>"; };
 		318D7F061D39C2830072F518 /* StatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewModel.m; sourceTree = "<group>"; };
+		31E1E40B1D55619B00408193 /* WeiboBaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboBaseParam.h; sourceTree = "<group>"; };
+		31E1E40C1D55619B00408193 /* WeiboBaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboBaseParam.m; sourceTree = "<group>"; };
 		31EC9A9D1D4B4D6A001C9B86 /* StatusCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCellViewModel.h; sourceTree = "<group>"; };
 		31EC9A9E1D4B4D6A001C9B86 /* StatusCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCellViewModel.m; sourceTree = "<group>"; };
 		31EC9AA11D4BA450001C9B86 /* WeiboNetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboNetworkTools.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 				31EC9AA21D4BA450001C9B86 /* WeiboNetworkTools.m */,
 				31EC9AB11D4BB625001C9B86 /* WeiboAccount.h */,
 				31EC9AB21D4BB625001C9B86 /* WeiboAccount.m */,
+				31E1E40B1D55619B00408193 /* WeiboBaseParam.h */,
+				31E1E40C1D55619B00408193 /* WeiboBaseParam.m */,
 				31EC9AA51D4BA698001C9B86 /* WeiboUserParam.h */,
 				31EC9AA61D4BA698001C9B86 /* WeiboUserParam.m */,
 				31EC9AA81D4BAD8F001C9B86 /* WeiboInfoParam.h */,
@@ -465,6 +470,7 @@
 				31EC9AAD1D4BB016001C9B86 /* WeiboUserResult.m in Sources */,
 				318D7EBD1D37B8320072F518 /* StatusViewController.m in Sources */,
 				318D7F071D39C2830072F518 /* StatusViewModel.m in Sources */,
+				31E1E40D1D55619B00408193 /* WeiboBaseParam.m in Sources */,
 				318D7EF81D38B7910072F518 /* StatusRetweetView.m in Sources */,
 				31EC9AB31D4BB625001C9B86 /* WeiboAccount.m in Sources */,
 				318D7EBA1D37B8320072F518 /* AppDelegate.m in Sources */,

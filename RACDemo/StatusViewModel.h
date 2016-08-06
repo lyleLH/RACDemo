@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "StatusCellViewModel.h"
+#import "GlobeHeader.h"
 
 @interface StatusViewModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray<StatusCellViewModel *> *dataSource;
+
+@property (nonatomic, strong) RACCommand *loginCommand;
+
+@property (nonatomic, strong) RACCommand *setupUserDataCommand;
 
 @end

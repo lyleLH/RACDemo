@@ -10,8 +10,7 @@
 #import "GlobeHeader.h"
 #import "StatusCell.h"
 #import "StatusViewModel.h"
-#import <WeiboSDK.h>
-#import "AppDelegate.h"
+#import "WeiboAccount.h"
 
 @interface StatusViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,25 +27,33 @@
     self.title = NSLocalizedString(@"RACDemo", nil);
     self.view.backgroundColor = [UIColor whiteColor];
 
+    // 添加视图
+    [self addViews];
+    
+    // 进行布局
+    [self defineLayout];
+    
+    // 授权登录
     [self login];
 }
 
 - (void)login {
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = mWeiBoRedirectURI;
-    request.scope = @"all";
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    @weakify(self);
-    [appDelegate.authorizeCompletionSignal subscribeNext:^(id x) {
-        @strongify(self);
-        
-        // 添加视图
-        [self addViews];
-        
-        // 进行布局
-        [self defineLayout];
-    }];
-    [WeiboSDK sendRequest:request];
+    if (![WeiboAccount loadAccount]) {
+        @weakify(self);
+        [[self.viewModel.loginCommand execute:nil] subscribeNext:^(id x) {
+            @strongify(self);
+            [self setupUserData];
+        }];
+    } else {
+        [self setupUserData];
+    }
+}
+
+- (void)setupUserData {
+    WeiboAccount *account = [WeiboAccount loadAccount];
+    if (!account.user) {
+        [self.viewModel.setupUserDataCommand execute:account];
+    }
 }
 
 - (void)addViews {

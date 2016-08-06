@@ -69,6 +69,8 @@
 }
 
 + (instancetype)loadAccount {
+    ZSLog("%@", [self.class accountSavePath]);
+    
     WeiboAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.class accountSavePath]];
     if (!account) return nil;
     
