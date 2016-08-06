@@ -12,6 +12,7 @@
 #import <WeiboSDK.h>
 #import "WeiboNetworkTools.h"
 #import "WeiboAccount.h"
+#import "AppDelegate.h"
 
 @implementation StatusViewModel
 
@@ -30,9 +31,11 @@
                 WBAuthorizeRequest *request = [WBAuthorizeRequest request];
                 request.redirectURI = mWeiBoRedirectURI;
                 request.scope = @"all";
+                AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                [appDelegate.authorizeCompletionSignal subscribeNext:^(id x) {
+                    [subscriber sendNext:nil];
+                }];
                 [WeiboSDK sendRequest:request];
-                
-                [subscriber sendCompleted];
                 
                 return nil;
             }];
@@ -55,7 +58,7 @@
                     account.user = (StatusUserModel *)result;
                     [account saveAccount];
                     
-                    [subscriber sendCompleted];
+                    [subscriber sendNext:nil];
                 } failure:^(NSError *error) {
                     [subscriber sendError:error];
                 }];
@@ -91,7 +94,7 @@
                     [tempArray addObjectsFromArray:self.dataSource];
                     self.dataSource = tempArray;
                     
-                    [subscriber sendCompleted];
+                    [subscriber sendNext:nil];
                 } failure:^(NSError *error) {
                     [subscriber sendError:error];
                 }];
@@ -123,7 +126,7 @@
                     }
                     [self.dataSource addObjectsFromArray:cellModelArray];
                     
-                    [subscriber sendCompleted];
+                    [subscriber sendNext:nil];
                 } failure:^(NSError *error) {
                     [subscriber sendError:error];
                 }];

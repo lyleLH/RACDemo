@@ -36,29 +36,8 @@
     
     // V绑定VM
     [self bindWithViewModel];
-    
-    // 授权登录
-    [self login];
 }
 
-- (void)login {
-    if (![WeiboAccount loadAccount]) {
-        @weakify(self);
-        [[self.viewModel.loginCommand execute:nil] subscribeNext:^(id x) {
-            @strongify(self);
-            [self setupUserData];
-        }];
-    } else {
-        [self setupUserData];
-    }
-}
-
-- (void)setupUserData {
-    WeiboAccount *account = [WeiboAccount loadAccount];
-    if (!account.user) {
-        [self.viewModel.setupUserDataCommand execute:account];
-    }
-}
 
 - (void)addViews {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -79,23 +58,43 @@
 
 - (void)bindWithViewModel {
     @weakify(self);
+    
+    WeiboAccount *account = [WeiboAccount loadAccount];
+    if (!account) {
+        [[self.viewModel.loginCommand execute:nil] subscribeNext:^(id x) {
+            @strongify(self);
+            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
+                [self.tableView.mj_header beginRefreshing];
+            }];
+        }];
+    } else {
+        if (!account.user) {
+            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
+                @strongify(self);
+                [self.tableView.mj_header beginRefreshing];
+            }];
+        }
+    }
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        [[self.viewModel.loadNewDataCommand execute:nil] subscribeCompleted:^{
+        [[self.viewModel.loadNewDataCommand execute:nil] subscribeNext:^(id x) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
+        } error:^(NSError *error) {
+            [self.tableView.mj_header endRefreshing];
         }];
     }];
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
          @strongify(self);
-        [[self.viewModel.loadMoreDataCommand execute:nil] subscribeCompleted:^{
+        [[self.viewModel.loadMoreDataCommand execute:nil] subscribeNext:^(id x) {
             [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
+        } error:^(NSError *error) {
+            [self.tableView.mj_footer endRefreshing];
         }];
     }];
-    
-    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - TableViewDelegate
