@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3122D8D11D57F7A000DBFC18 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 3122D8D01D57F7A000DBFC18 /* Const.m */; };
 		318D7EB71D37B8320072F518 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EB61D37B8320072F518 /* main.m */; };
 		318D7EBA1D37B8320072F518 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EB91D37B8320072F518 /* AppDelegate.m */; };
 		318D7EBD1D37B8320072F518 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EBC1D37B8320072F518 /* StatusViewController.m */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		22060256A5D4F4C1554E9469 /* Pods-RACDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		30EBCF934B94D0CC52D5F988 /* Pods-RACDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo.release.xcconfig"; sourceTree = "<group>"; };
+		3122D8CF1D57F7A000DBFC18 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		3122D8D01D57F7A000DBFC18 /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		318D7EB21D37B8320072F518 /* RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		318D7EB61D37B8320072F518 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		318D7EB81D37B8320072F518 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,11 +157,13 @@
 			isa = PBXGroup;
 			children = (
 				318D7EE81D37CD120072F518 /* GlobeHeader.h */,
+				3122D8CF1D57F7A000DBFC18 /* Const.h */,
+				3122D8D01D57F7A000DBFC18 /* Const.m */,
 				318D7EB81D37B8320072F518 /* AppDelegate.h */,
 				318D7EB91D37B8320072F518 /* AppDelegate.m */,
 				318D7EEE1D38B3950072F518 /* View */,
-				318D7EEF1D38B39C0072F518 /* Model */,
 				318D7EF01D38B3A20072F518 /* ViewModel */,
+				318D7EEF1D38B39C0072F518 /* Model */,
 				31EC9AA41D4BA61F001C9B86 /* Network */,
 				318D7EB51D37B8320072F518 /* Supporting Files */,
 			);
@@ -448,6 +453,7 @@
 				31EC9A9F1D4B4D6A001C9B86 /* StatusCellViewModel.m in Sources */,
 				31EC9AAA1D4BAD8F001C9B86 /* WeiboInfoParam.m in Sources */,
 				318D7EB71D37B8320072F518 /* main.m in Sources */,
+				3122D8D11D57F7A000DBFC18 /* Const.m in Sources */,
 				31EC9AA71D4BA698001C9B86 /* WeiboUserParam.m in Sources */,
 				31EC9AB01D4BB04D001C9B86 /* WeiboInfoResult.m in Sources */,
 				318D7EED1D37DCF40072F518 /* StatusCell.m in Sources */,
@@ -586,6 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moe.cocoa.RACDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -598,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RACDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = moe.cocoa.RACDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

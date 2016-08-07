@@ -25,7 +25,8 @@
     self.window.rootViewController = mainNavigationController;
     [self.window makeKeyAndVisible];
     
-    [WeiboSDK registerApp:mWeiBoAppKey];
+    // Sina Weibo register
+    [WeiboSDK registerApp:WeiBoAppKey];
     
     return YES;
 }
@@ -70,7 +71,7 @@
     }
 }
 
-// 微博
+// Sina Weibo callback
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         ZSLog("%@", response.userInfo);

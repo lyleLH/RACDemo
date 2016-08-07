@@ -22,7 +22,7 @@
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 
                 WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-                request.redirectURI = mWeiBoRedirectURI;
+                request.redirectURI = WeiBoRedirectURI;
                 request.scope = @"all";
                 AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
                 [appDelegate.authorizeCompletionSignal subscribeNext:^(id x) {
