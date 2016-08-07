@@ -83,6 +83,7 @@
         [account saveAccount];
         
         [self.authorizeCompletionSignal sendNext:nil];
+        [self.authorizeCompletionSignal sendCompleted];
     }
 }
 

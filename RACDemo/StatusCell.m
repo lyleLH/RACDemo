@@ -54,20 +54,20 @@
 
 - (void)defineLayout {
     @weakify(self);
-    [self.iconImg makeConstraints:^(MASConstraintMaker *make) {
+    [self.iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(UIEdgeInsetsMake(16, 16, 16, 16));
         make.size.equalTo(40);
     }];
     
-    [self.nameLabel makeConstraints:^(MASConstraintMaker *make) {
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.centerY.equalTo(self.iconImg);
-        make.left.equalTo(self.iconImg.right).offset(16);
+        make.left.equalTo(self.iconImg.mas_right).offset(16);
     }];
     
-    [self.contentLabel makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.top.equalTo(self.iconImg.bottom).offset(8);
+        make.top.equalTo(self.iconImg.mas_bottom).offset(8);
         make.left.right.equalTo(UIEdgeInsetsMake(16, 16, 16, 16));
     }];
 }

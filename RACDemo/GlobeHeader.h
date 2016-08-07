@@ -10,15 +10,10 @@
 #define GlobeHeader_h
 
 // Sina Weibo
-//#define mWeiBoAppKey                @"3326454558"
 #define mWeiBoAppKey                @"2476133309"
-//#define mWeiBoAppSecret             @"b4492536fcc92cd7b075d892aa78bd43"
 #define mWeiBoAppSecret             @"7503313c823d35fcfb9a721805ef659a"
 #define mWeiBoRedirectURI           @"https://api.weibo.com/oauth2/default.html"
 
-//define this constant if you want to use Masonry without the 'mas_' prefix
-#define MAS_SHORTHAND
-//define this constant if you want to enable auto-boxing for default syntax
 #define MAS_SHORTHAND_GLOBALS
 #import "Masonry.h"
 #import "ReactiveCocoa.h"

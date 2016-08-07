@@ -38,7 +38,6 @@
     [self bindWithViewModel];
 }
 
-
 - (void)addViews {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
@@ -58,24 +57,6 @@
 
 - (void)bindWithViewModel {
     @weakify(self);
-    
-    WeiboAccount *account = [WeiboAccount loadAccount];
-    if (!account) {
-        [[self.viewModel.loginCommand execute:nil] subscribeNext:^(id x) {
-            @strongify(self);
-            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
-                [self.tableView.mj_header beginRefreshing];
-            }];
-        }];
-    } else {
-        if (!account.user) {
-            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
-                @strongify(self);
-                [self.tableView.mj_header beginRefreshing];
-            }];
-        }
-    }
-    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [[self.viewModel.loadNewDataCommand execute:nil] subscribeNext:^(id x) {
@@ -95,6 +76,25 @@
             [self.tableView.mj_footer endRefreshing];
         }];
     }];
+    
+    WeiboAccount *account = [WeiboAccount loadAccount];
+    if (!account) {
+        [[self.viewModel.loginCommand execute:nil] subscribeNext:^(id x) {
+            @strongify(self);
+            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
+                [self.tableView.mj_header beginRefreshing];
+            }];
+        }];
+    } else {
+        if (!account.user) {
+            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
+                @strongify(self);
+                [self.tableView.mj_header beginRefreshing];
+            }];
+        } else {
+            [self.tableView.mj_header beginRefreshing];
+        }
+    }
 }
 
 #pragma mark - TableViewDelegate

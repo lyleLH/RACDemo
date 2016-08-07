@@ -16,13 +16,6 @@
 
 @implementation StatusViewModel
 
-- (NSMutableArray<StatusCellViewModel *> *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray new];
-    }
-    return _dataSource;
-}
-
 - (RACCommand *)loginCommand {
     if (!_loginCommand) {
         _loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -34,6 +27,7 @@
                 AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
                 [appDelegate.authorizeCompletionSignal subscribeNext:^(id x) {
                     [subscriber sendNext:nil];
+                    [subscriber sendCompleted];
                 }];
                 [WeiboSDK sendRequest:request];
                 
@@ -59,6 +53,7 @@
                     [account saveAccount];
                     
                     [subscriber sendNext:nil];
+                    [subscriber sendCompleted];
                 } failure:^(NSError *error) {
                     [subscriber sendError:error];
                 }];
@@ -95,6 +90,7 @@
                     self.dataSource = tempArray;
                     
                     [subscriber sendNext:nil];
+                    [subscriber sendCompleted];
                 } failure:^(NSError *error) {
                     [subscriber sendError:error];
                 }];
@@ -114,7 +110,6 @@
                 WeiboInfoParam *param = [WeiboInfoParam new];
                 if (self.dataSource.count) {
                     StatusCellViewModel *cellModel = [self.dataSource lastObject];
-                    // 加载ID <= max_id的微博
                     param.max_id = @(cellModel.status.ID - 1);
                 }
                 
@@ -127,6 +122,7 @@
                     [self.dataSource addObjectsFromArray:cellModelArray];
                     
                     [subscriber sendNext:nil];
+                    [subscriber sendCompleted];
                 } failure:^(NSError *error) {
                     [subscriber sendError:error];
                 }];
@@ -137,6 +133,14 @@
         }];
     }
     return _loadMoreDataCommand;
+}
+
+#pragma mark - Lazy Load
+- (NSMutableArray<StatusCellViewModel *> *)dataSource {
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray new];
+    }
+    return _dataSource;
 }
 
 @end
