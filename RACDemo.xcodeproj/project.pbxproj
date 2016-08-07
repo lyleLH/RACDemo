@@ -16,10 +16,6 @@
 		318D7EDB1D37B8320072F518 /* RACDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EDA1D37B8320072F518 /* RACDemoUITests.m */; };
 		318D7EEA1D37D4EC0072F518 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 318D7EE91D37D4EC0072F518 /* Localizable.strings */; };
 		318D7EED1D37DCF40072F518 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EEC1D37DCF40072F518 /* StatusCell.m */; };
-		318D7EF51D38B73D0072F518 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EF41D38B73D0072F518 /* StatusView.m */; };
-		318D7EF81D38B7910072F518 /* StatusRetweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EF71D38B7910072F518 /* StatusRetweetView.m */; };
-		318D7EFB1D38B8510072F518 /* StatusPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EFA1D38B8510072F518 /* StatusPhotoGroupView.m */; };
-		318D7EFE1D38B90B0072F518 /* StatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7EFD1D38B90B0072F518 /* StatusLabel.m */; };
 		318D7F011D39B90F0072F518 /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7F001D39B90F0072F518 /* StatusModel.m */; };
 		318D7F041D39B9510072F518 /* StatusUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7F031D39B9510072F518 /* StatusUserModel.m */; };
 		318D7F071D39C2830072F518 /* StatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 318D7F061D39C2830072F518 /* StatusViewModel.m */; };
@@ -73,14 +69,6 @@
 		318D7EE91D37D4EC0072F518 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		318D7EEB1D37DCF40072F518 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
 		318D7EEC1D37DCF40072F518 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
-		318D7EF31D38B73D0072F518 /* StatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
-		318D7EF41D38B73D0072F518 /* StatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
-		318D7EF61D38B7910072F518 /* StatusRetweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusRetweetView.h; sourceTree = "<group>"; };
-		318D7EF71D38B7910072F518 /* StatusRetweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusRetweetView.m; sourceTree = "<group>"; };
-		318D7EF91D38B8510072F518 /* StatusPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusPhotoGroupView.h; sourceTree = "<group>"; };
-		318D7EFA1D38B8510072F518 /* StatusPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusPhotoGroupView.m; sourceTree = "<group>"; };
-		318D7EFC1D38B90B0072F518 /* StatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusLabel.h; sourceTree = "<group>"; };
-		318D7EFD1D38B90B0072F518 /* StatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusLabel.m; sourceTree = "<group>"; };
 		318D7EFF1D39B90F0072F518 /* StatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusModel.h; sourceTree = "<group>"; };
 		318D7F001D39B90F0072F518 /* StatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusModel.m; sourceTree = "<group>"; };
 		318D7F021D39B9510072F518 /* StatusUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusUserModel.h; sourceTree = "<group>"; };
@@ -210,7 +198,6 @@
 		318D7EEE1D38B3950072F518 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				31EC9AA01D4B9F0F001C9B86 /* New Group */,
 				318D7EBB1D37B8320072F518 /* StatusViewController.h */,
 				318D7EBC1D37B8320072F518 /* StatusViewController.m */,
 				318D7EEB1D37DCF40072F518 /* StatusCell.h */,
@@ -239,21 +226,6 @@
 				31EC9A9E1D4B4D6A001C9B86 /* StatusCellViewModel.m */,
 			);
 			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		31EC9AA01D4B9F0F001C9B86 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				318D7EF31D38B73D0072F518 /* StatusView.h */,
-				318D7EF41D38B73D0072F518 /* StatusView.m */,
-				318D7EF61D38B7910072F518 /* StatusRetweetView.h */,
-				318D7EF71D38B7910072F518 /* StatusRetweetView.m */,
-				318D7EF91D38B8510072F518 /* StatusPhotoGroupView.h */,
-				318D7EFA1D38B8510072F518 /* StatusPhotoGroupView.m */,
-				318D7EFC1D38B90B0072F518 /* StatusLabel.h */,
-				318D7EFD1D38B90B0072F518 /* StatusLabel.m */,
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		31EC9AA41D4BA61F001C9B86 /* Network */ = {
@@ -471,13 +443,9 @@
 				318D7EBD1D37B8320072F518 /* StatusViewController.m in Sources */,
 				318D7F071D39C2830072F518 /* StatusViewModel.m in Sources */,
 				31E1E40D1D55619B00408193 /* WeiboBaseParam.m in Sources */,
-				318D7EF81D38B7910072F518 /* StatusRetweetView.m in Sources */,
 				31EC9AB31D4BB625001C9B86 /* WeiboAccount.m in Sources */,
 				318D7EBA1D37B8320072F518 /* AppDelegate.m in Sources */,
 				31EC9A9F1D4B4D6A001C9B86 /* StatusCellViewModel.m in Sources */,
-				318D7EFB1D38B8510072F518 /* StatusPhotoGroupView.m in Sources */,
-				318D7EFE1D38B90B0072F518 /* StatusLabel.m in Sources */,
-				318D7EF51D38B73D0072F518 /* StatusView.m in Sources */,
 				31EC9AAA1D4BAD8F001C9B86 /* WeiboInfoParam.m in Sources */,
 				318D7EB71D37B8320072F518 /* main.m in Sources */,
 				31EC9AA71D4BA698001C9B86 /* WeiboUserParam.m in Sources */,

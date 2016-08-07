@@ -26,6 +26,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (!self) return nil;
     
+     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     // 添加视图
     [self addViews];
     

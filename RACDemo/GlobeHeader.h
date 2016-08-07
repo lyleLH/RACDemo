@@ -26,23 +26,5 @@
 #define ZSLog(format, ...)
 #endif
 
-/** 昵称的字体 */
-#define mStatusNameFont             [UIFont systemFontOfSize:15]
-
-/** 被转发微博作者昵称的字体 */
-#define mRetweetStatusNameFont      mStatusNameFont
-
-/** 时间的字体 */
-#define mStatusTimeFont             [UIFont systemFontOfSize:12]
-
-/** 来源的字体 */
-#define mStatusSourceFont           mStatusTimeFont
-
-/** 正文的字体(用于计算文本的高度, 文本的实际大小由STTwitterLabel决定) */
-#define mStatusContentFont          [UIFont systemFontOfSize:15]
-
-/** 被转发微博正文的字体 */
-#define mRetweetStatusContentFont   mStatusContentFont
-
 #endif /* GlobeHeader_h */
 
