@@ -11,8 +11,6 @@ target 'RACDemo’ do
     pod 'MJExtension',                  '~> 3.0.11'
     pod 'MJRefresh',                    '~> 3.1.10'
     pod 'WeiboSDK',                     :git => 'https://github.com/sinaweibosdk/weibo_ios_sdk.git'
-#	pod 'AFNetworking'
-#	pod 'AFNetworking-RACExtensions',   :git => 'https://github.com/knshiro/AFNetworking-RACExtensions.git'
 
 end
 

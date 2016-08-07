@@ -57,18 +57,21 @@
     [self.iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(UIEdgeInsetsMake(16, 16, 16, 16));
         make.size.equalTo(40);
+        make.right.bottom.lessThanOrEqualTo(UIEdgeInsetsMake(16, 16, 16, 16));
     }];
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.centerY.equalTo(self.iconImg);
         make.left.equalTo(self.iconImg.mas_right).offset(16);
+        make.right.top.bottom.lessThanOrEqualTo(UIEdgeInsetsMake(16, 16, 16, 16));
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.equalTo(self.iconImg.mas_bottom).offset(8);
         make.left.right.equalTo(UIEdgeInsetsMake(16, 16, 16, 16));
+        make.bottom.lessThanOrEqualTo(UIEdgeInsetsMake(16, 16, 16, 16));
     }];
 }
 

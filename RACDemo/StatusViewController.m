@@ -44,7 +44,8 @@
     [self.tableView registerClass:[StatusCell class] forCellReuseIdentifier:NSStringFromClass([StatusCell class])];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 150;
+    self.tableView.estimatedRowHeight = 150.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)defineLayout {
