@@ -1,2 +1,2 @@
 # RACDemo
-a demo of reactivecocoa and mvvm
+a demo with reactivecocoa and mvvm
