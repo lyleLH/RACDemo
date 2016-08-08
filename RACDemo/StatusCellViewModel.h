@@ -11,7 +11,7 @@
 
 @interface StatusCellViewModel : NSObject
 
-@property (strong, nonatomic) StatusModel *status;
+@property (assign, nonatomic) int64_t ID;
 
 // 头像url
 @property (nonatomic, copy) NSString *avatar;

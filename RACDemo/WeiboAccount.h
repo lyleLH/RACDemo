@@ -27,9 +27,6 @@
 // 出错
 @property (copy, nonatomic) NSString *error_description;
 
-+ (instancetype)accountWithDict:(NSDictionary *)dict;
-- (instancetype)initWithDict:(NSDictionary *)dict;
-
 - (BOOL)saveAccount;
 + (instancetype)loadAccount;
 + (void)refreshAccountExpiresTime;

@@ -13,25 +13,6 @@
 
 @implementation WeiboAccount
 
-+ (instancetype)accountWithDict:(NSDictionary *)dict {
-    return [[self alloc] initWithDict:dict];
-}
-
-- (instancetype)initWithDict:(NSDictionary *)dict {
-    if (self = [super init]) {
-        [self setValuesForKeysWithDictionary:dict];
-    }
-    return self;
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
-}
-
-- (id)valueForUndefinedKey:(NSString *)key {
-    return nil;
-}
-
 #pragma mark - NSCoding
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {

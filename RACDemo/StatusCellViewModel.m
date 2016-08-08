@@ -14,17 +14,12 @@
     self = [super init];
     if (!self) return nil;
     
-    self.status = status;
-    
-    return self;
-}
-
-- (void)setStatus:(StatusModel *)status {
-    _status = status;
-    
+    self.ID = status.ID;
     self.avatar = status.user.avatar_large;
     self.userName = status.user.name;
     self.text = status.text;
+    
+    return self;
 }
 
 @end

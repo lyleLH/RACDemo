@@ -7,7 +7,6 @@
 //
 
 #import "StatusViewModel.h"
-#import "WBHttpRequest.h"
 #import "GlobeHeader.h"
 #import <WeiboSDK.h>
 #import "WeiboNetworkTools.h"
@@ -74,7 +73,7 @@
                 param.count = @20;
                 if (self.dataSource.count) {
                     StatusCellViewModel *cellModel = self.dataSource[0];
-                    param.since_id = @(cellModel.status.ID);
+                    param.since_id = @(cellModel.ID);
                 }
                 
                 [WeiboNetworkTools weiboInfoWithParam:param success:^(WeiboInfoResult *result) {
@@ -110,7 +109,7 @@
                 WeiboInfoParam *param = [WeiboInfoParam new];
                 if (self.dataSource.count) {
                     StatusCellViewModel *cellModel = [self.dataSource lastObject];
-                    param.max_id = @(cellModel.status.ID - 1);
+                    param.max_id = @(cellModel.ID - 1);
                 }
                 
                 [WeiboNetworkTools weiboInfoWithParam:param success:^(WeiboInfoResult *result) {

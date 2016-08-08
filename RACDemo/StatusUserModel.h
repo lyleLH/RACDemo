@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface StatusUserModel : NSObject <NSCoding>
+@interface StatusUserModel : NSObject 
 
 /**
  *  用户的ID

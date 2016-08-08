@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "StatusUserModel.h"
 
-@interface StatusModel : NSObject <NSCoding>
+@interface StatusModel : NSObject 
 /**
  *  微博的内容
  */
