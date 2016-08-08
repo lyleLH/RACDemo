@@ -10,5 +10,4 @@
 
 // Sina Weibo const
 UIKIT_EXTERN NSString *const WeiBoAppKey;
-UIKIT_EXTERN NSString *const WeiBoAppSecret;
 UIKIT_EXTERN NSString *const WeiBoRedirectURI;          

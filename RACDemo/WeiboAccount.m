@@ -98,17 +98,13 @@
 }
 
 + (NSString *)accountSavePath {
-    NSString *dir = [WeiboAccount weiboAccountDir];
+    NSString *dir =  [WeiboAccount directoryInDocuments:@"Weibo"];
     NSString *fileName = @"account.plist";
     return [dir stringByAppendingPathComponent:fileName];
 }
 
 + (void)deleteAccount {
     [[NSFileManager defaultManager] removeItemAtPath:[self accountSavePath] error:NULL];
-}
-
-+ (NSString *)weiboAccountDir {
-    return [WeiboAccount directoryInDocuments:@"Weibo"];
 }
 
 + (NSString *)directoryInDocuments:(NSString *)dir {

@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray<StatusCellViewModel *> *dataSource;
 
-@property (nonatomic, strong) RACCommand *loginCommand;
+@property (nonatomic, strong) RACCommand *authorizeCommand;
 
 @property (nonatomic, strong) RACCommand *setupUserDataCommand;
 

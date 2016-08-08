@@ -80,7 +80,7 @@
     
     WeiboAccount *account = [WeiboAccount loadAccount];
     if (!account) {
-        [[self.viewModel.loginCommand execute:nil] subscribeNext:^(id x) {
+        [[self.viewModel.authorizeCommand execute:nil] subscribeNext:^(id x) {
             @strongify(self);
             [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
                 [self.tableView.mj_header beginRefreshing];

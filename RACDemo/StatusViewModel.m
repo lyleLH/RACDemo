@@ -16,9 +16,9 @@
 
 @implementation StatusViewModel
 
-- (RACCommand *)loginCommand {
-    if (!_loginCommand) {
-        _loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+- (RACCommand *)authorizeCommand {
+    if (!_authorizeCommand) {
+        _authorizeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 
                 WBAuthorizeRequest *request = [WBAuthorizeRequest request];
@@ -35,7 +35,7 @@
             }];
         }];
     }
-    return _loginCommand;
+    return _authorizeCommand;
 }
 
 - (RACCommand *)setupUserDataCommand {
@@ -127,7 +127,6 @@
                     [subscriber sendError:error];
                 }];
 
-                
                 return nil;
             }];
         }];
