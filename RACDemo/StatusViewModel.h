@@ -16,8 +16,6 @@
 
 @property (nonatomic, strong) RACCommand *authorizeCommand;
 
-@property (nonatomic, strong) RACCommand *setupUserDataCommand;
-
 @property (nonatomic, strong) RACCommand *loadNewDataCommand;
 
 @property (nonatomic, strong) RACCommand *loadMoreDataCommand;

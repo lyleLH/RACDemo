@@ -22,4 +22,22 @@
     return self;
 }
 
+#pragma mark - NSCoding
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.ID = [decoder decodeInt64ForKey:@"ID"];
+        self.avatar = [decoder decodeObjectForKey:@"avatar"];
+        self.userName = [decoder decodeObjectForKey:@"userName"];
+        self.text = [decoder decodeObjectForKey:@"text"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeInt64:self.ID forKey:@"ID"];
+    [encoder encodeObject:self.avatar forKey:@"avatar"];
+    [encoder encodeObject:self.userName forKey:@"userName"];
+    [encoder encodeObject:self.text forKey:@"text"];
+}
+
 @end

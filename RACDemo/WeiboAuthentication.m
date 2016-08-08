@@ -6,17 +6,16 @@
 //  Copyright © 2016年 張帥. All rights reserved.
 //
 
-#import "WeiboAccount.h"
+#import "WeiboAuthentication.h"
 #import "GlobeHeader.h"
 #import <WeiboSDK.h>
 #import <MJExtension/MJExtension.h>
 
-@implementation WeiboAccount
+@implementation WeiboAuthentication
 
 #pragma mark - NSCoding
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        self.user = [decoder decodeObjectForKey:@"user"];
         self.access_token = [decoder decodeObjectForKey:@"access_token"];
         self.expiresTime = [decoder decodeObjectForKey:@"expiresTime"];
         self.expires_in = [decoder decodeObjectForKey:@"expires_in"];
@@ -27,7 +26,6 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:self.user forKey:@"user"];
     [encoder encodeObject:self.access_token forKey:@"access_token"];
     [encoder encodeObject:self.expiresTime forKey:@"expiresTime"];
     [encoder encodeObject:self.expires_in forKey:@"expires_in"];
@@ -35,57 +33,42 @@
     [encoder encodeObject:self.refresh_token forKey:@"refreshToken"];
 }
 
-- (BOOL)saveAccount {
+- (BOOL)save {
     if (self.error_description) return NO;
     
     ZSLog("%@, %@", self.expiresTime, self.expires_in);
     
     if (!self.expiresTime && self.expires_in) {
-        // 计算账号的过期时间
+        // 计算认证的过期时间
         self.expiresTime = [[NSDate date] dateByAddingTimeInterval:[self.expires_in longLongValue]];
     }
     
-    [NSKeyedArchiver archiveRootObject:self toFile:[self.class accountSavePath]];
+    [NSKeyedArchiver archiveRootObject:self toFile:[self.class savedPath]];
     return YES;
 }
 
-+ (instancetype)loadAccount {
-    ZSLog("%@", [self.class accountSavePath]);
++ (instancetype)authentication {
+    ZSLog("%@", [self.class savedPath]);
     
-    WeiboAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.class accountSavePath]];
-    if (!account) return nil;
+    WeiboAuthentication *authentication = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.class savedPath]];
+    if (!authentication) return nil;
     
-    // 判断账号是否过期
-    if ([[NSDate date] compare:account.expiresTime] == NSOrderedAscending) { // 还没有过期
-        return account;
-    } else { // 过期
+    // 判断认证是否过期
+    if ([[NSDate date] compare:authentication.expiresTime] == NSOrderedAscending) {
+        return authentication;
+    } else {
         return nil;
     }
 }
 
-+ (void)refreshAccountExpiresTime {
-    WeiboAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:[self.class accountSavePath]];
-    if (!account) return;
-    
-    // 如果账号过期，使用RefreshToken去换取新的AccessToken
-    if ([[NSDate date] compare:account.expiresTime] == NSOrderedDescending) {
-        [WBHttpRequest requestForRenewAccessTokenWithRefreshToken:account.refresh_token queue:[NSOperationQueue new] withCompletionHandler:^(WBHttpRequest *httpRequest, NSDictionary *result, NSError *error) {
-            ZSLog("result = %@", result);
-            WeiboAccount *account = [WeiboAccount mj_objectWithKeyValues:result];
-            [account saveAccount];
-            ZSLog("account = %@", account.mj_keyValues);
-        }];
-    }
++ (void)remove {
+    [[NSFileManager defaultManager] removeItemAtPath:[self savedPath] error:NULL];
 }
 
-+ (NSString *)accountSavePath {
-    NSString *dir =  [WeiboAccount directoryInDocuments:@"Weibo"];
-    NSString *fileName = @"account.plist";
++ (NSString *)savedPath {
+    NSString *dir =  [WeiboAuthentication directoryInDocuments:@"Weibo"];
+    NSString *fileName = @"authentication.plist";
     return [dir stringByAppendingPathComponent:fileName];
-}
-
-+ (void)deleteAccount {
-    [[NSFileManager defaultManager] removeItemAtPath:[self accountSavePath] error:NULL];
 }
 
 + (NSString *)directoryInDocuments:(NSString *)dir {
@@ -98,7 +81,7 @@
     } else {
         NSError* error;
         if (![fileManager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
-            NSLog(@"Can not create directory: %@  error: %@", directory, error.debugDescription);
+            ZSLog(@"Can not create directory: %@  error: %@", directory, error.debugDescription);
         }
     }
     return directory;

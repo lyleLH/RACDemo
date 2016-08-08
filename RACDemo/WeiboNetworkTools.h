@@ -7,19 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WeiboUserParam.h"
 #import "WeiboInfoParam.h"
-#import "WeiboUserResult.h"
 #import "WeiboInfoResult.h"
 
 @interface WeiboNetworkTools : NSObject
-
-/**
- *  根据用户ID获取用户信息
- */
-+ (void)userInfoWithParam:(WeiboUserParam *)param
-                  success:(void (^)(WeiboUserResult *result))success
-                  failure:(void (^)(NSError *error))failure;
 
 /**
  *  获取当前登录用户及其所关注用户的最新微博

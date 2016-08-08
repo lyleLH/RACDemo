@@ -7,13 +7,13 @@
 //
 
 #import "WeiboBaseParam.h"
-#import "WeiboAccount.h"
+#import "WeiboAuthentication.h"
 
 @implementation WeiboBaseParam
 
 - (instancetype)init {
     if (self = [super init]) {
-        _access_token = WeiboAccount.loadAccount.access_token;
+        _access_token = WeiboAuthentication.authentication.access_token;
     }
     return self;
 }

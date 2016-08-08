@@ -9,12 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "StatusUserModel.h"
 
-@interface WeiboAccount : NSObject <NSCoding>
+@interface WeiboAuthentication : NSObject <NSCoding>
 
-// 用户信息
-@property (strong, nonatomic) StatusUserModel *user;
-
-// 账号的过期时间
+// 认证的过期时间
 @property (strong, nonatomic) NSDate *expiresTime;
 
 // 成功
@@ -27,9 +24,8 @@
 // 出错
 @property (copy, nonatomic) NSString *error_description;
 
-- (BOOL)saveAccount;
-+ (instancetype)loadAccount;
-+ (void)refreshAccountExpiresTime;
-+ (void)deleteAccount;
+- (BOOL)save;
++ (instancetype)authentication;
++ (void)remove;
 
 @end

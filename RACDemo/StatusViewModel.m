@@ -10,7 +10,7 @@
 #import "GlobeHeader.h"
 #import <WeiboSDK.h>
 #import "WeiboNetworkTools.h"
-#import "WeiboAccount.h"
+#import "WeiboAuthentication.h"
 #import "AppDelegate.h"
 
 @implementation StatusViewModel
@@ -37,33 +37,6 @@
     return _authorizeCommand;
 }
 
-- (RACCommand *)setupUserDataCommand {
-    if (!_setupUserDataCommand) {
-        _setupUserDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            __block WeiboAccount *account = (WeiboAccount *)input;
-            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                
-                WeiboUserParam *param = [WeiboUserParam new];
-                param.uid = @([[WeiboAccount loadAccount].uid longLongValue]);
-                
-                [WeiboNetworkTools userInfoWithParam:param success:^(WeiboUserResult *result) {
-                    if(!account) account = [WeiboAccount loadAccount];
-                    account.user = (StatusUserModel *)result;
-                    [account saveAccount];
-                    
-                    [subscriber sendNext:nil];
-                    [subscriber sendCompleted];
-                } failure:^(NSError *error) {
-                    [subscriber sendError:error];
-                }];
-                
-                return nil;
-            }];
-        }];
-    }
-    return _setupUserDataCommand;
-}
-
 - (RACCommand *)loadNewDataCommand {
     if (!_loadNewDataCommand) {
         _loadNewDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -88,9 +61,13 @@
                     [tempArray addObjectsFromArray:self.dataSource];
                     self.dataSource = tempArray;
                     
+                    [NSKeyedArchiver archiveRootObject:self.dataSource toFile:[self savedPath]];
+                    
                     [subscriber sendNext:nil];
                     [subscriber sendCompleted];
                 } failure:^(NSError *error) {
+                    self.dataSource = [NSKeyedUnarchiver unarchiveObjectWithFile:[self savedPath]];
+                    
                     [subscriber sendError:error];
                 }];
                 
@@ -120,9 +97,13 @@
                     }
                     [self.dataSource addObjectsFromArray:cellModelArray];
                     
+                    [NSKeyedArchiver archiveRootObject:self.dataSource toFile:[self savedPath]];
+                    
                     [subscriber sendNext:nil];
                     [subscriber sendCompleted];
                 } failure:^(NSError *error) {
+                    self.dataSource = [NSKeyedUnarchiver unarchiveObjectWithFile:[self savedPath]];
+                    
                     [subscriber sendError:error];
                 }];
 
@@ -131,6 +112,28 @@
         }];
     }
     return _loadMoreDataCommand;
+}
+
+- (NSString *)savedPath {
+    NSString *dir = [StatusViewModel directoryInDocuments:@"Weibo"];
+    NSString *fileName = [[WeiboAuthentication authentication].access_token stringByAppendingPathExtension:@"plist"];
+    return [dir stringByAppendingPathComponent:fileName];
+}
+
++ (NSString *)directoryInDocuments:(NSString *)dir {
+    NSString *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *directory = [path stringByAppendingPathComponent:dir];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:directory]) {
+        
+    } else {
+        NSError* error;
+        if (![fileManager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
+            NSLog(@"Can not create directory: %@  error: %@", directory, error.debugDescription);
+        }
+    }
+    return directory;
 }
 
 #pragma mark - Lazy Load

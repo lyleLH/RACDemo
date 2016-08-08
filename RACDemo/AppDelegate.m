@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "StatusViewController.h"
 #import <WeiboSDK.h>
-#import "WeiboAccount.h"
+#import "WeiboAuthentication.h"
 
 @interface AppDelegate () <WeiboSDKDelegate>
 
@@ -76,12 +76,12 @@
     if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         ZSLog("%@", response.userInfo);
         WBAuthorizeResponse *res = (WBAuthorizeResponse *)response;
-        WeiboAccount *account = [WeiboAccount new];
-        account.uid = res.userID;
-        account.expiresTime = res.expirationDate;
-        account.access_token = res.accessToken;
-        account.refresh_token = res.refreshToken;
-        [account saveAccount];
+        WeiboAuthentication *authentication = [WeiboAuthentication new];
+        authentication.uid = res.userID;
+        authentication.expiresTime = res.expirationDate;
+        authentication.access_token = res.accessToken;
+        authentication.refresh_token = res.refreshToken;
+        [authentication save];
         
         [self.authorizeCompletionSignal sendNext:nil];
         [self.authorizeCompletionSignal sendCompleted];

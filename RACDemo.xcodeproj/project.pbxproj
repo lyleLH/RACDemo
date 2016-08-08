@@ -23,11 +23,9 @@
 		31E1E40D1D55619B00408193 /* WeiboBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E1E40C1D55619B00408193 /* WeiboBaseParam.m */; };
 		31EC9A9F1D4B4D6A001C9B86 /* StatusCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9A9E1D4B4D6A001C9B86 /* StatusCellViewModel.m */; };
 		31EC9AA31D4BA450001C9B86 /* WeiboNetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AA21D4BA450001C9B86 /* WeiboNetworkTools.m */; };
-		31EC9AA71D4BA698001C9B86 /* WeiboUserParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AA61D4BA698001C9B86 /* WeiboUserParam.m */; };
 		31EC9AAA1D4BAD8F001C9B86 /* WeiboInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AA91D4BAD8F001C9B86 /* WeiboInfoParam.m */; };
-		31EC9AAD1D4BB016001C9B86 /* WeiboUserResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AAC1D4BB016001C9B86 /* WeiboUserResult.m */; };
 		31EC9AB01D4BB04D001C9B86 /* WeiboInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AAF1D4BB04D001C9B86 /* WeiboInfoResult.m */; };
-		31EC9AB31D4BB625001C9B86 /* WeiboAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AB21D4BB625001C9B86 /* WeiboAccount.m */; };
+		31EC9AB31D4BB625001C9B86 /* WeiboAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EC9AB21D4BB625001C9B86 /* WeiboAuthentication.m */; };
 		6170439E5EAB1B464FA924DC /* Pods_RACDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8615CBA902C04B1311B919 /* Pods_RACDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,16 +82,12 @@
 		31EC9A9E1D4B4D6A001C9B86 /* StatusCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCellViewModel.m; sourceTree = "<group>"; };
 		31EC9AA11D4BA450001C9B86 /* WeiboNetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboNetworkTools.h; sourceTree = "<group>"; };
 		31EC9AA21D4BA450001C9B86 /* WeiboNetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboNetworkTools.m; sourceTree = "<group>"; };
-		31EC9AA51D4BA698001C9B86 /* WeiboUserParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUserParam.h; sourceTree = "<group>"; };
-		31EC9AA61D4BA698001C9B86 /* WeiboUserParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboUserParam.m; sourceTree = "<group>"; };
 		31EC9AA81D4BAD8F001C9B86 /* WeiboInfoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboInfoParam.h; sourceTree = "<group>"; };
 		31EC9AA91D4BAD8F001C9B86 /* WeiboInfoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboInfoParam.m; sourceTree = "<group>"; };
-		31EC9AAB1D4BB016001C9B86 /* WeiboUserResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUserResult.h; sourceTree = "<group>"; };
-		31EC9AAC1D4BB016001C9B86 /* WeiboUserResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboUserResult.m; sourceTree = "<group>"; };
 		31EC9AAE1D4BB04D001C9B86 /* WeiboInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboInfoResult.h; sourceTree = "<group>"; };
 		31EC9AAF1D4BB04D001C9B86 /* WeiboInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboInfoResult.m; sourceTree = "<group>"; };
-		31EC9AB11D4BB625001C9B86 /* WeiboAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAccount.h; sourceTree = "<group>"; };
-		31EC9AB21D4BB625001C9B86 /* WeiboAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAccount.m; sourceTree = "<group>"; };
+		31EC9AB11D4BB625001C9B86 /* WeiboAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAuthentication.h; sourceTree = "<group>"; };
+		31EC9AB21D4BB625001C9B86 /* WeiboAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAuthentication.m; sourceTree = "<group>"; };
 		6E8615CBA902C04B1311B919 /* Pods_RACDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RACDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -238,16 +232,12 @@
 			children = (
 				31EC9AA11D4BA450001C9B86 /* WeiboNetworkTools.h */,
 				31EC9AA21D4BA450001C9B86 /* WeiboNetworkTools.m */,
-				31EC9AB11D4BB625001C9B86 /* WeiboAccount.h */,
-				31EC9AB21D4BB625001C9B86 /* WeiboAccount.m */,
+				31EC9AB11D4BB625001C9B86 /* WeiboAuthentication.h */,
+				31EC9AB21D4BB625001C9B86 /* WeiboAuthentication.m */,
 				31E1E40B1D55619B00408193 /* WeiboBaseParam.h */,
 				31E1E40C1D55619B00408193 /* WeiboBaseParam.m */,
-				31EC9AA51D4BA698001C9B86 /* WeiboUserParam.h */,
-				31EC9AA61D4BA698001C9B86 /* WeiboUserParam.m */,
 				31EC9AA81D4BAD8F001C9B86 /* WeiboInfoParam.h */,
 				31EC9AA91D4BAD8F001C9B86 /* WeiboInfoParam.m */,
-				31EC9AAB1D4BB016001C9B86 /* WeiboUserResult.h */,
-				31EC9AAC1D4BB016001C9B86 /* WeiboUserResult.m */,
 				31EC9AAE1D4BB04D001C9B86 /* WeiboInfoResult.h */,
 				31EC9AAF1D4BB04D001C9B86 /* WeiboInfoResult.m */,
 			);
@@ -444,17 +434,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31EC9AAD1D4BB016001C9B86 /* WeiboUserResult.m in Sources */,
 				318D7EBD1D37B8320072F518 /* StatusViewController.m in Sources */,
 				318D7F071D39C2830072F518 /* StatusViewModel.m in Sources */,
 				31E1E40D1D55619B00408193 /* WeiboBaseParam.m in Sources */,
-				31EC9AB31D4BB625001C9B86 /* WeiboAccount.m in Sources */,
+				31EC9AB31D4BB625001C9B86 /* WeiboAuthentication.m in Sources */,
 				318D7EBA1D37B8320072F518 /* AppDelegate.m in Sources */,
 				31EC9A9F1D4B4D6A001C9B86 /* StatusCellViewModel.m in Sources */,
 				31EC9AAA1D4BAD8F001C9B86 /* WeiboInfoParam.m in Sources */,
 				318D7EB71D37B8320072F518 /* main.m in Sources */,
 				3122D8D11D57F7A000DBFC18 /* Const.m in Sources */,
-				31EC9AA71D4BA698001C9B86 /* WeiboUserParam.m in Sources */,
 				31EC9AB01D4BB04D001C9B86 /* WeiboInfoResult.m in Sources */,
 				318D7EED1D37DCF40072F518 /* StatusCell.m in Sources */,
 				31EC9AA31D4BA450001C9B86 /* WeiboNetworkTools.m in Sources */,

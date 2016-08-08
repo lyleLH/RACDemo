@@ -43,7 +43,6 @@
 - (void)addViews {
     self.iconImg = [UIImageView new];
     [self.contentView addSubview:self.iconImg];
-    self.iconImg.backgroundColor = [UIColor yellowColor];
     
     self.nameLabel = [UILabel new];
     [self.contentView addSubview:self.nameLabel];

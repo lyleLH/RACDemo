@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "StatusModel.h"
 
-@interface StatusCellViewModel : NSObject
+@interface StatusCellViewModel : NSObject <NSCoding>
 
 @property (assign, nonatomic) int64_t ID;
 

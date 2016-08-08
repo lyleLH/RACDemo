@@ -13,19 +13,6 @@
 
 @implementation WeiboNetworkTools
 
-+ (void)userInfoWithParam:(WeiboUserParam *)param success:(void (^)(WeiboUserResult *result))success failure:(void (^)(NSError *error))failure {
-    [self GET:@"https://api.weibo.com/2/users/show.json" params:param.mj_keyValues success:^(WBHttpRequest *httpRequest, NSDictionary *json) {
-        if (success) {
-            WeiboUserResult *result = [WeiboUserResult mj_objectWithKeyValues:json];
-            success(result);
-        }
-    } failure:^(WBHttpRequest *httpRequest, NSError *error) {
-        if (failure) {
-            failure(error);
-        }
-    }];
-}
-
 + (void)weiboInfoWithParam:(WeiboInfoParam *)param success:(void (^)(WeiboInfoResult *result))success failure:(void (^)(NSError *error))failure {
     [self GET:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.mj_keyValues success:^(WBHttpRequest *httpRequest, NSDictionary *json) {
         if (success) {

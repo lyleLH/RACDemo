@@ -10,7 +10,7 @@
 #import "GlobeHeader.h"
 #import "StatusCell.h"
 #import "StatusViewModel.h"
-#import "WeiboAccount.h"
+#import "WeiboAuthentication.h"
 #import <MJRefresh/MJRefresh.h>
 
 @interface StatusViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -36,6 +36,7 @@
     
     // V绑定VM
     [self bindWithViewModel];
+    
 }
 
 - (void)addViews {
@@ -65,6 +66,7 @@
             [self.tableView reloadData];
         } error:^(NSError *error) {
             [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
         }];
     }];
     
@@ -75,26 +77,17 @@
             [self.tableView reloadData];
         } error:^(NSError *error) {
             [self.tableView.mj_footer endRefreshing];
+            [self.tableView reloadData];
         }];
     }];
     
-    WeiboAccount *account = [WeiboAccount loadAccount];
-    if (!account) {
+    if (![WeiboAuthentication authentication]) {
         [[self.viewModel.authorizeCommand execute:nil] subscribeNext:^(id x) {
             @strongify(self);
-            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
-                [self.tableView.mj_header beginRefreshing];
-            }];
+            [self.tableView.mj_header beginRefreshing];
         }];
     } else {
-        if (!account.user) {
-            [[self.viewModel.setupUserDataCommand execute:account] subscribeNext:^(id x) {
-                @strongify(self);
-                [self.tableView.mj_header beginRefreshing];
-            }];
-        } else {
-            [self.tableView.mj_header beginRefreshing];
-        }
+        [self.tableView.mj_header beginRefreshing];
     }
 }
 
